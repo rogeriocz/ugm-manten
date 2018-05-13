@@ -1,0 +1,8 @@
+1. configurar base de datos en .env
+2. si marca error configurar parametros en app/provider/appserviceproviders.php
+3. crear migracion, modelo y controlador php artisan make:model Manten -mc
+4. configuramos la migracion creamos la tabla de mantenimiento y corremos las migraciones.
+4. creamos la ruta
+5. creamos la funcion index en el controlador de manten y lo enviamos a la vista index
+6. creamos archivo index.blade.php para mostrar los datos en 
+
