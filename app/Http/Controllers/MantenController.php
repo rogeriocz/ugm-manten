@@ -63,7 +63,7 @@ class MantenController extends Controller
         $manten->fecha_manten = Carbon::parse($request->fecha_manten);
         $manten->save();
 
-        return redirect('mantenimiento')->with('flash', 'Mantenimiento editado correctamente');;
+        return redirect('mantenimiento')->with('flash', 'Mantenimiento editado correctamente');
     }
 
     public function destroy(Manten $manten)

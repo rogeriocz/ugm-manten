@@ -31,7 +31,7 @@
                   <td>{{ $manten->modelo }}</td>
                   <td>{{ $manten->n_serie }}</td>
                   <td>{{ $manten->fecha_manten->diffForHumans() }}</td>
-                  <td>{{ $manten->created_at->diffForHumans() }}</td>
+                  <td>{{ $manten->created_at->format('d-m-Y H:i') }}</td>
                   <td>{{ $manten->updated_at->format('d-m-Y H:i') }}</td>
                   <td><a href="{{ route('manetenimiento.edit', $manten) }}" class="btn btn-xs btn-info"><i class="fa fa-pencil"></i></a>
                   
