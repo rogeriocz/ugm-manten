@@ -15,9 +15,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::group(['middleware'=> 'auth'], function(){
+
 Route::get('/mantenimiento', 'MantenController@index')->name('manetenimiento');
 Route::get('/mantenimiento/create', 'MantenController@create')->name('manetenimiento.create');
 Route::post('/mantenimiento', 'MantenController@store')->name('manetenimiento.store');
 Route::get('/mantenimiento/{manten}', 'MantenController@edit')->name('manetenimiento.edit');
 Route::put('/mantenimiento/{manten}', 'MantenController@update')->name('manetenimiento.update');
 Route::delete('/mantenimiento/{manten}', 'MantenController@destroy')->name('manetenimiento.destroy');
+
+Route::get('charts', 'ChartsController@chart')->name('charts.index');
+	
+
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

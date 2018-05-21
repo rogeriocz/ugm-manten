@@ -27,6 +27,23 @@
                         {!! $errors->first('t_equipo', '<span class="help-block">:message</span>') !!}
                         
                       </div>
+                      <div class="form-group {{ $errors->has('pc_id') ? 'has-error' : '' }}">
+                        <label>Categorías</label>
+                          <select name="pc_id" class="form-control select2">
+                          <option value="">Seleciona una categoría</option>
+
+                  @foreach($tipopc as $pc)
+
+                  <option value="{{ $pc->id }}">{{ $pc->nombre }}</option>
+                   
+
+                  @endforeach
+
+                </select>
+                {!! $errors->first('pc_id', '<span class="help-block">:message</span>') !!}
+              </div>
+
+                     
 
                       <div class="form-group col-md-12 {{ $errors->has('marca') ? 'has-error' : '' }}">
                         <label>Marca</label>

@@ -1,6 +1,7 @@
 @extends('layout')
 
 @section('content')
+
 <div class="row">
         <div class="col-xs-12">
           <div class="box">
@@ -12,7 +13,7 @@
               <table id="example2" class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                  <th>Tipo de pc</th>
+                  <th>Tipo de pc </th>
                   <th>Marca</th>
                   <th>Modelo</th>
                   <th># serie</th>
@@ -26,7 +27,7 @@
                 	@foreach($mantenimientos as $manten)
                 <tr>
                 	
-                  <td>{{ $manten->t_equipo }}</td>
+                  <td>{{ $manten->nombre }}</td>
                   <td>{{ $manten->marca }}</td>
                   <td>{{ $manten->modelo }}</td>
                   <td>{{ $manten->n_serie }}</td>

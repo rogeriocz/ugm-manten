@@ -4,24 +4,30 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use App\Manten;
+use App\Tipopc;
+use DB;
 use Illuminate\Http\Request;
 
 class MantenController extends Controller
 {
     public function index()
     {
-    	$mantenimientos = Manten::all();
+    	
+        $mante = Tipopc::all();
+        $mantenimientos = Manten::join('tipopcs','mantens.pc_id','=','tipopcs.id')
+                                ->select('tipopcs.nombre','mantens.*')
+                                ->get();
+       //dd($mantenimientos);
 
-        
-
-    	return view('mantenpc.index', compact('mantenimientos'));
+    	return view('mantenpc.index', compact('mantenimientos', 'tipopc'));
     }
 
     public function create()
     {
     	$proactivos = Manten::all();
-
-    	return view('mantenpc.create', compact('proactivos'));
+        $tipopc = Tipopc::all();
+        //dd($tipopc);
+    	return view('mantenpc.create', compact('proactivos', 'tipopc'));
     }
 
     public function store(Request $request)
@@ -40,6 +46,7 @@ class MantenController extends Controller
         $proactivos->marca = $request->marca;
         $proactivos->modelo = $request->modelo;
         $proactivos->n_serie = $request->n_serie;
+        $proactivos->pc_id = $request->pc_id;
         $proactivos->fecha_manten = Carbon::parse($request->fecha_manten);
     	$proactivos->save();
         //Flashy::success('alumno registrado correctamente');
