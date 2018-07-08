@@ -25,10 +25,10 @@ class MantenController extends Controller
 
     public function create()
     {
-    	$proactivos = Manten::all();
+    	$mantenimiento = Manten::all();
         $tipopc = Tipopc::all();
         //dd($tipopc);
-    	return view('mantenpc.create', compact('proactivos', 'tipopc'));
+    	return view('mantenpc.create', compact('mantenimiento', 'tipopc'));
     }
 
     public function store(Request $request)
@@ -42,18 +42,18 @@ class MantenController extends Controller
         
         ]);
 
-    	$proactivos = new Manten();
-    	$proactivos->t_equipo = $request->t_equipo;
-        $proactivos->marca = $request->marca;
-        $proactivos->modelo = $request->modelo;
-        $proactivos->n_serie = $request->n_serie;
-        $proactivos->pc_id = $request->pc_id;
-        $proactivos->fecha_manten = Carbon::parse($request->fecha_manten);
-    	$proactivos->save();
+    	$mantenimiento = new Manten();
+    	$mantenimiento->t_equipo = $request->t_equipo;
+        $mantenimiento->marca = $request->marca;
+        $mantenimiento->modelo = $request->modelo;
+        $mantenimiento->n_serie = $request->n_serie;
+        $mantenimiento->pc_id = $request->pc_id;
+        $mantenimiento->fecha_manten = Carbon::parse($request->fecha_manten);
+    	$mantenimiento->save();
 
         $userproactivo = new Proactivo();
         $userproactivo->nombre = $request->nombre;
-        $userproactivo->manten_id = $proactivos->id;
+        $userproactivo->manten_id = $mantenimiento->id;
         $userproactivo->save();
 
         //Flashy::success('alumno registrado correctamente');
@@ -75,7 +75,6 @@ class MantenController extends Controller
         $manten->modelo = $request->modelo;
         $manten->n_serie = $request->n_serie;
         $manten->fecha_manten = Carbon::parse($request->fecha_manten);
-        $pro->nombre = $request->nombre;
         $manten->save();
 
         return redirect('mantenimiento')->with('flash', 'Mantenimiento editado correctamente');
