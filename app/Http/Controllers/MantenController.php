@@ -56,7 +56,7 @@ class MantenController extends Controller
         $userproactivo->manten_id = $mantenimiento->id;
         $userproactivo->save();
 
-        //Flashy::success('alumno registrado correctamente');
+        
        return redirect('mantenimiento')->with('flash', 'Mantenimiento registrado correctamente');
     }
 
