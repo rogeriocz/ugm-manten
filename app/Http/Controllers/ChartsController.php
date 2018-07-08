@@ -23,7 +23,7 @@ class ChartsController extends Controller
 			      ->responsive(false)
 			      ->lastByday(14, true);
 		
-		dd($chart);
+		//dd($chart);
 		return view('graficas.index', compact('chart'));
 	}
 }

@@ -17,6 +17,7 @@
                   <th>Marca</th>
                   <th>Modelo</th>
                   <th># serie</th>
+                  <th>Categoria</th>
                   <th>Proximo proactivo</th>
                   <th>Fecha de proactivo</th>
                   <th>Actualizado</th>
@@ -27,10 +28,11 @@
                 	@foreach($mantenimientos as $manten)
                 <tr>
                 	
-                  <td>{{ $manten->nombre }}</td>
+                  <td>{{ $manten->t_equipo }}</td>
                   <td>{{ $manten->marca }}</td>
                   <td>{{ $manten->modelo }}</td>
                   <td>{{ $manten->n_serie }}</td>
+                  <td>{{ $manten->nombre }}</td>
                   <td>{{ $manten->fecha_manten->diffForHumans() }}</td>
                   <td>{{ $manten->created_at->format('d-m-Y H:i') }}</td>
                   <td>{{ $manten->updated_at->format('d-m-Y H:i') }}</td>

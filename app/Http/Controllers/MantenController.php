@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Manten;
 use App\Tipopc;
+use App\Proactivo;
 use DB;
 use Illuminate\Http\Request;
 
@@ -49,18 +50,24 @@ class MantenController extends Controller
         $proactivos->pc_id = $request->pc_id;
         $proactivos->fecha_manten = Carbon::parse($request->fecha_manten);
     	$proactivos->save();
+
+        $userproactivo = new Proactivo();
+        $userproactivo->nombre = $request->nombre;
+        $userproactivo->manten_id = $proactivos->id;
+        $userproactivo->save();
+
         //Flashy::success('alumno registrado correctamente');
        return redirect('mantenimiento')->with('flash', 'Mantenimiento registrado correctamente');
     }
 
-    public function edit(Manten $manten)
+    public function edit(Manten $manten, Proactivo $pro)
     {
         
 
-        return view('mantenpc.edit', compact('manten'));
+        return view('mantenpc.edit', compact('manten', 'pro'));
     }
 
-    public function update(Manten $manten, Request $request)
+    public function update(Proactivo $pro, Manten $manten, Request $request)
     {
         
         $manten->t_equipo = $request->t_equipo;
@@ -68,6 +75,7 @@ class MantenController extends Controller
         $manten->modelo = $request->modelo;
         $manten->n_serie = $request->n_serie;
         $manten->fecha_manten = Carbon::parse($request->fecha_manten);
+        $pro->nombre = $request->nombre;
         $manten->save();
 
         return redirect('mantenimiento')->with('flash', 'Mantenimiento editado correctamente');

@@ -81,7 +81,16 @@
                         id="datepicker">
                       </div>
                         {!! $errors->first('fecha_manten', '<span class="help-block">:message</span>') !!}
+                      </div>
 
+                   <!--    <div class="form-group col-md-12 {{ $errors->has('n_serie') ? 'has-error' : '' }}">
+                        <label>Nombre de Usuario</label>
+                        <input type="" name="nombre" class="form-control" value="{{ old('nombre') }}"
+                        placeholder="Ingresa aquí nombre de usuario">
+                        {!! $errors->first('nombre', '<span class="help-block">:message</span>') !!}
+                      </div> -->
+                      
+                     
 
 
               </div>
