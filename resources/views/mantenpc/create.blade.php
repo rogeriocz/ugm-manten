@@ -84,9 +84,9 @@
                       </div>
 
                    <div class="form-group col-md-12 {{ $errors->has('n_serie') ? 'has-error' : '' }}">
-                        <label>Nombre de Usuario</label>
+                        <label>Nombre del tecnico</label>
                         <input type="" name="nombre" class="form-control" value="{{ old('nombre') }}"
-                        placeholder="Ingresa aquí nombre de usuario">
+                        placeholder="Ingresa aquí nombre del tecnico">
                         {!! $errors->first('nombre', '<span class="help-block">:message</span>') !!}
                       </div>
                       

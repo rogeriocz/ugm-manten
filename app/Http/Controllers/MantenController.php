@@ -60,22 +60,27 @@ class MantenController extends Controller
        return redirect('mantenimiento')->with('flash', 'Mantenimiento registrado correctamente');
     }
 
-    public function edit(Manten $manten, Proactivo $pro)
+    public function edit(Manten $manten)
     {
         
-
-        return view('mantenpc.edit', compact('manten', 'pro'));
+        $proactivo = $manten->proactivo;
+        //dd($proactivo->nombre);
+        return view('mantenpc.edit', compact('manten', 'proactivo'));
     }
 
-    public function update(Proactivo $pro, Manten $manten, Request $request)
+    public function update(Manten $manten, Request $request)
     {
-        
+        //dd($manten->proactivo->nombre);
         $manten->t_equipo = $request->t_equipo;
         $manten->marca = $request->marca;
         $manten->modelo = $request->modelo;
         $manten->n_serie = $request->n_serie;
         $manten->fecha_manten = Carbon::parse($request->fecha_manten);
+        $manten->proactivo->nombre = $request->nombre;
+
         $manten->save();
+
+        
 
         return redirect('mantenimiento')->with('flash', 'Mantenimiento editado correctamente');
     }

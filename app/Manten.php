@@ -18,7 +18,7 @@ class Manten extends Model
     	return $this->belongsTo(Tipopc::class);
     }
 
-    public function proact()
+    public function proactivo()
     {
     	return $this->hasOne(Proactivo::class);
     }
