@@ -13,6 +13,7 @@
               <table id="example2" class="table table-bordered table-hover">
                 <thead>
                 <tr>
+                  <th>Observacion</th>
                   <th>Tipo de pc </th>
                   <th>Marca</th>
                   <th>Modelo</th>
@@ -27,7 +28,7 @@
                 <tbody>
                 	@foreach($mantenimientos as $manten)
                 <tr>
-                	
+                	 <td>{{ $manten->nombre_p }}</td>
                   <td>{{ $manten->t_equipo }}</td>
                   <td>{{ $manten->marca }}</td>
                   <td>{{ $manten->modelo }}</td>

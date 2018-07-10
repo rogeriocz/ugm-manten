@@ -2,7 +2,7 @@
 
 @section('content')
 
-<form method="POST" action="{{ route('manetenimiento.update', [$manten, $proactivo])}}">
+<form method="POST" action="{{ route('manetenimiento.update', [$manten, $proactivo, $prof])}}">
       {{ csrf_field() }} {{ method_field('PUT') }}
 
       
@@ -54,6 +54,13 @@
                         <input type="" name="nombre" class="form-control" value="{{ old('n_serie', $proactivo->nombre) }}"
                         placeholder="Ingresa aquí nombre del tecnico">
                         {!! $errors->first('nombre', '<span class="help-block">:message</span>') !!}
+                      </div>
+
+                      <div class="form-group col-md-12 {{ $errors->has('nombre_p') ? 'has-error' : '' }}">
+                        <label>Nombre de perfil</label>
+                        <input type="" name="nombre_p" class="form-control" value="{{ old('nombre_p', $prof->nombre_p) }}"
+                        placeholder="Ingresa aquí nombre del perfil">
+                        {!! $errors->first('nombre_p', '<span class="help-block">:message</span>') !!}
                       </div>
 
                       <div class="form-group">

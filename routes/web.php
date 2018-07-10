@@ -25,6 +25,8 @@ Route::get('/mantenimiento/{manten}', 'MantenController@edit')->name('manetenimi
 Route::put('/mantenimiento/{manten}', 'MantenController@update')->name('manetenimiento.update');
 Route::delete('/mantenimiento/{manten}', 'MantenController@destroy')->name('manetenimiento.destroy');
 Route::get('/proactivo', 'ProactivoController@index')->name('proactivo.index');
+//Route::get('/profile', 'ProfileController@index')->name('profile.index');
+
 
 Route::get('charts', 'ChartsController@chart')->name('charts.index');
 	

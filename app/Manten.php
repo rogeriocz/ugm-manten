@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Manten extends Model
 {
    
-	protected $guarded = [];
+	protected $fillable = ['t_equipo', 'manten_id', 'marca', 'modelo', 'n_serie', 'compañia', 'placa', 'laboratorio', 'fecha_manten'];
 	protected $dates = ['fecha_manten'];
 
 	
@@ -21,5 +21,10 @@ class Manten extends Model
     public function proactivo()
     {
     	return $this->hasOne(Proactivo::class);
+    }
+
+    public function profile()
+    {
+        return $this->belongsTo(Profile::class);
     }
 }

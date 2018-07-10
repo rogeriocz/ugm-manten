@@ -19,6 +19,9 @@ class CreateMantensTable extends Migration
             $table->string('marca')->nullable();
             $table->string('modelo')->nullable();
             $table->string('n_serie')->nullable();
+            $table->boolean('compañia')->default(0);
+            $table->boolean('placa')->default(0);
+            $table->boolean('laboratorio')->default(0);
             $table->datetime('fecha_manten')->nullable();
             $table->timestamps();
         });

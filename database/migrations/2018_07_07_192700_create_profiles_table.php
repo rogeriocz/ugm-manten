@@ -15,6 +15,10 @@ class CreateProfilesTable extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('nombre_p')->nullable();
+            $table->boolean('espera')->default(0);
+            $table->datetime('date_start')->nullable();
+            $table->datetime('date_end')->nullable();
             $table->timestamps();
         });
     }
